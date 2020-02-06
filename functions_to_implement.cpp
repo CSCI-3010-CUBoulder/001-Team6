@@ -33,7 +33,16 @@ std::vector<int> MatchVectors(std::vector<int> a, std::vector<int> b);
 int RemoveTwos(int original);
 
 // takes a vector of integers and removes all elements evenly divisible by the passed in int
-std::vector<int> MultiplesFilter(std::vector<int>, int divides_by);
+std::vector<int> MultiplesFilter(std::vector<int> vec, int divides_by) {
+  std::vector<int> results;
+  int current = 0;
+  for(int i = 0; i < vec.size(); i++) {
+    current = vec.at(i);
+    if (current % divides_by == 0) {
+      results.push_back(current);
+    }
+  }
+}
 
 // returns a vector with true for even numbers and false for odd numbers
 std::vector<bool> EvenMask(std::vector<int> input){
@@ -72,10 +81,20 @@ std::vector<int> Multiples(int n, int m);
 std::vector<int> SquaresUntil(int n);
 
 // takes an int, n, and returns the nth value of the fibonacci sequence (1, 1, 2, 3, 5, 8, 13, ...)
-int NthFibonacci(int n);
+int NthFibonacci(int n) {
+	int two_back = 1, last = 1, curr = 0;
+	for(int i = 0; i < n; i++) {
+		curr = two_back + last;
+		two_back = last;
+		last = curr;
+	}
+	return curr;
+}
 
 // takes an int, n, and returns the factorial of that int (n!)
-int Factorial(int n);
+int Factorial(int n){
+	return((n*(n-1))/2);
+}
 
 // returns -1 if the number is negative and 1 if positive
 int Sign(int num);
