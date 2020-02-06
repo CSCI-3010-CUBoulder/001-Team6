@@ -33,7 +33,16 @@ std::vector<int> MatchVectors(std::vector<int> a, std::vector<int> b);
 int RemoveTwos(int original);
 
 // takes a vector of integers and removes all elements evenly divisible by the passed in int
-std::vector<int> MultiplesFilter(std::vector<int>, int divides_by);
+std::vector<int> MultiplesFilter(std::vector<int> vec, int divides_by) {
+  std::vector<int> results;
+  int current = 0;
+  for(int i = 0; i < vec.size(); i++) {
+    current = vec.at(i);
+    if (current % divides_by == 0) {
+      results.push_back(current);
+    }
+  }
+}
 
 // returns a vector with true for even numbers and false for odd numbers
 std::vector<bool> EvenMask(std::vector<int>);
