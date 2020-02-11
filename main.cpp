@@ -1,15 +1,11 @@
+#define CATCH_CONFIG_MAIN
 #include <iostream>
 #include "functions_to_implement.cpp"
+#include "catch.hpp"
 
 int main(){
-    std::cout<<"This is main."<<std::endl;
-    //Testing RemoveAllSubstrings()
-    std::cout<<RemoveAllSubstrings("abcWow this is a abcreally abccool stringabc" "abc")<<std::endl;
-    //Should print " Wow this is a really cool string".
-    
-    //Testing Join()
-    //Should pring "I wow really wow like wow writing wow strings wow"
-    std::vector<string> hmm = ("I"," really", " like", " writing", " strings")
-    std::cout<< Join(hmm, "wow")<<std::endl;
-
+    TEST_CASE( "RemoveAllStrings", "[RemoveStrings]" ) {
+        REQUIRE( RemoveAllSubstrings("abcwowdefghiwow","wow") == "abcdefhji" );
+        REQUIRE( RemoveAllSubstrings("abcwowdefghiwow","abc") == "wowdefhjiwow" );
+        REQUIRE( RemoveAllSubstrings("hithere","hi") == "there" );
 }
