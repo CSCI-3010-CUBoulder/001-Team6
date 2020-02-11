@@ -10,7 +10,13 @@ std::vector<std::string> Split(std::string whole, std::string separator){
 }
 
 // takes two strings and returns a new string that is the result of removing all occurrences of s2 from s1.
-std::string RemoveAllSubstrings(std::string s1, std::string s2);
+std::string RemoveAllSubstrings(std::string s1, std::string s2){
+	while(s1.find(s2)){
+		int location = s1.find(s2);
+		s1 = s1[0:location] + s1[location+s1.length():];
+	}
+	return s1;
+}
 
 // takes two strings and returns a new string that is the result of removing the first occurrence of s2 from s1.
 std::string RemoveFirstSubstring(std::string s1, std::string s2);
