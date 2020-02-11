@@ -1,4 +1,4 @@
-/* String functions section */
+//* String functions section */
 
 // Splits a single string on separator into a vector of strings
 std::vector<std::string> Split(std::string whole, std::string separator){
@@ -103,7 +103,9 @@ int Factorial(int n){
 }
 
 // returns -1 if the number is negative and 1 if positive
-int Sign(int num);
+int Sign(int num){
+return -1;
+}
 
 // takes two vectors of doubles, a and b. The function then removes elements from a if they are also in b.
 // If the double is in b, but not in a, nothing happens.
